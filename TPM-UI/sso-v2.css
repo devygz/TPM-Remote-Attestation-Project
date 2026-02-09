@@ -1,0 +1,328 @@
+@import url('https://rsms.me/inter/inter.css');
+
+html {
+    font-family: 'Inter', sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+    html {
+        font-family: 'Inter var', sans-serif;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+
+}
+
+.tfa-apple {
+    margin-top: 2em;
+}
+
+.tfa-apple-start {
+    margin-top: 2em;
+}
+
+.tfa-recommended>b:nth-child(1) {
+    color: green;
+
+}
+
+.login-bg {
+    height: auto;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100vw;
+
+}
+
+
+.login-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: left;
+    height: 100vh;
+    overflow-y: scroll;
+    width: 40vw;
+    z-index: 1;
+    padding: 3rem;
+    background-color: transparent;
+    color: white;
+    -webkit-backdrop-filter: blur(10px) brightness(50%) saturate(150%);
+}
+
+.lg-title {
+    margin-top: 0em;
+    font-size: 0.8em;
+}
+
+.lg-appname {
+    font-size: 1.7em;
+    font-weight: 300;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.lg-404-img {
+    height: 8em;
+    margin-left: 43%;
+}
+
+.lg-invalid-img {
+    height: 8em;
+    margin-left: 41%;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+
+}
+
+.formd {
+    margin-top: 3em;
+}
+
+.lg-error-img {
+    height: 8em;
+    margin-left: 41%;
+}
+
+.lg-text {
+    font-size: 0.8em;
+    margin-top: 2%;
+
+
+    line-height: 1.5em;
+}
+
+.btn {
+    margin-top: 2em;
+}
+
+.security-indicators {
+    text-align: center;
+    margin-top: 3em;
+}
+
+.security-indicator-standard {
+    color: rgb(0, 126, 168);
+    font-weight: 500;
+}
+
+.security-indicator-elevated {
+    color: green;
+    font-weight: 500;
+}
+
+.dn {
+    display: none;
+}
+
+.lg-404-btn {
+    width: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    text-decoration: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    display: block;
+    padding: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.lg-404-btn:hover {
+    background-color: #222;
+}
+
+.aabbcc {
+    font-size: 0.7em;
+    color: #888;
+    margin-top: 1em;
+}
+
+input {
+    outline: none;
+    font-size: 1.1em;
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    border: 2px solid white;
+    border-radius: 5px;
+
+    padding: 2%;
+    background-color: transparent;
+
+    color: white;
+    -webkit-backdrop-filter: blur(15px) brightness(50%);
+    backdrop-filter: blur(15px) brightness(30%);
+
+}
+
+input:focus {
+    -webkit-backdrop-filter: blur(20px) brightness(10%);
+    backdrop-filter: blur(20px) brightness(10%);
+    border: 2px solid #b8b8b8;
+    transition: all 0.3s ease;
+}
+
+.action {
+    margin-top: 2em;
+    width: 25%;
+    color: white;
+    text-align: center;
+    background-color: #2359c2;
+    padding-bottom: 0.8em;
+    padding-top: 0.8em;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-radius: 4px;
+}
+
+.action:hover {
+    background-color: #222;
+}
+
+.actionb {
+    display: inline-block;
+    /* margin-top: 1em;
+     width: 100%;
+     text-align: center;
+     background-color: rgba(0, 0, 0, 0.5);
+     border-radius: 5px;
+     padding-bottom: 1em;
+     padding-top: 1em;
+     cursor: pointer;
+     transition: background-color 0.2s ease;
+     -webkit-backdrop-filter: blur(15px) brightness(80%);
+     backdrop-filter: blur(15px) brightness(80%);
+     -webkit-backdrop-filter: blur(15px) brightness(80%);*/
+    margin-top: 2em;
+    width: 25%;
+    color: black;
+    text-align: center;
+    background-color: #e0e0e0;
+    padding-bottom: 0.8em;
+    padding-top: 0.8em;
+    font-size: 0.8em;
+    cursor: pointer;
+    margin-left: 2em;
+    transition: background-color 0.2s ease;
+    border-radius: 4px;
+}
+
+.actionb:hover {
+    background-color: #d5d5d5;
+}
+
+.actionc {
+    display: inline-block;
+    margin-top: 2em;
+    width: 25%;
+    color: black;
+    text-align: center;
+    background-color: #e0e0e0;
+    padding-bottom: 0.8em;
+    padding-top: 0.8em;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.actionc:hover {
+    background-color: #d5d5d5;
+}
+
+.legal-txt {
+    font-size: 0.85em;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 3em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.eos-box {
+    padding: 1rem;
+    font-size: 0.8rem;
+    background-color: #0d47b9;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.eos-title {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.eos-body {
+    margin-top: .5rem;
+}
+
+.svglogo {
+    display: block;
+    height: 4em;
+    filter: invert();
+}
+
+.branding {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.brand-texts {
+    margin-left: 1em;
+    font-size: 0.8em;
+}
+
+.school-name {
+    font-weight: bold;
+}
+
+.the-form {
+    margin-top: 2em;
+}
+
+.login-bg-limit {
+    min-height: 100vh;
+    height: auto;
+    width: 100vw;
+}
+
+.btnrack {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnrack>* {
+    flex: 1;
+}
+
+@media screen and (max-width: 600px),
+screen and (orientation: portrait) {
+
+    .login-box {
+        width: 100vw;
+        padding: 10%;
+    }
+
+}

@@ -1,0 +1,419 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+
+body {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.hero-image-container {
+    overflow: hidden;
+    position: relative;
+    height: 50vh;
+    border-radius: 25px;
+    margin-top: 3rem;
+}
+
+.hero-image-container > img {
+    width: 100%;
+    filter: brightness(70%);
+    min-height: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.hero-image-container > .hero-title {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: #f0f0f0;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+main {
+    margin: 0 auto;
+    width: 90vw;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 20px;
+}
+
+.section {
+    margin-top: 4rem;
+}
+.sc-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.sc-body {
+    line-height: 1.5rem;
+}
+
+.cslist-obj {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.cslist-obj > .cslist-date {
+    font-weight: bold;
+}
+
+#cslist-section {
+    width: 50vw;
+    min-width: fit-content;
+    font-size: 1.2rem;
+}
+
+.flex {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+.flex > .section {
+    width: 45vw;
+}
+
+#registerFlex > .section > .input-obj {
+    margin-bottom: 1rem;
+}
+
+.input-obj > input {
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1pt solid white;
+    font-size: 1.2rem;
+    padding: .5rem;
+    color: white;
+    transition: all .2s ease;
+}
+
+.input-obj > input:focus {
+    background-color: #db0a40;
+    color: white;
+    border: 2pt solid #db0a40;
+
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.stats-obj > .stats-value {
+    text-align: center;
+    font-size: 2rem;
+    font-family: monospace;
+    margin-bottom: 1rem;
+}
+
+.stats-obj > .stats-label {
+    text-align: center;
+}
+
+main {
+    margin-bottom: 10rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 3rem;
+    font-size: 1.1rem;
+}
+
+.hd-left {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.hd-right {
+    line-height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hd-right > a {
+    display: block;
+    color: #151515;
+    margin-left: 2rem;
+    opacity: 1;
+    transition: opacity .25s ease;
+}
+.hd-right > a:hover {
+    opacity: 0.7;
+}
+
+.input-obj {
+    margin-bottom: 2rem;
+}
+
+header > a {
+    text-decoration: none;
+    color: #151515;
+}
+
+.img-top-preferred {
+    bottom: unset;
+    top: 0;
+}
+.number-obj {
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+    font-family: monospace;
+    font-weight: bold;
+    border: 2px solid #fff;
+    color: white;
+    background-color: transparent;
+    border-radius: 99999px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-naq {
+    justify-content: start;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.quiz-naq > .quiz-question {
+    margin-left: 2ch;
+    
+}
+
+.quiz-question-item {
+    margin-bottom: 2rem;
+}
+
+.btn-send-answers {
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .2s ease;
+    font-weight: bold;
+}
+
+.btn-send-answers:hover {
+    color: white;
+    background-color: #00162b;
+    border: 2px solid #00162b;
+
+}
+
+.btn-primary {
+    color: white;
+    background-color: #06f;
+    padding: 1rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .2s ease;
+    font-weight: bold;
+    border-radius: 1000px;
+}
+
+.btn-primary:hover {
+    color: #db0a40;
+    background-color: transparent;
+    border: 2px solid #db0a40;
+    
+
+}
+
+#quizSection {
+    background-color: #db0a40;
+    padding: 4rem;
+    border-radius: 25px;
+}
+
+.sf-logo {
+    margin-right: 1rem;
+
+}
+
+.mt-title {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.hosts-table > table {
+    text-align: left;
+    border-collapse: collapse; 
+    width: 100%;
+}
+
+.hosts-table > table > tbody > tr > td {
+    border-bottom: 1px solid black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.hosts-table > table > thead > tr > th {
+    border-bottom: 1px solid black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.hosts-table {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.lsi-icon {
+    font-weight: normal;
+    transition: .2s ease all;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 2rem;
+}
+
+.lsi-icon:hover {
+    font-weight: bold;
+}
+
+.lsi-show-detail {
+    font-weight: normal;
+    transition: .2s ease all;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.lsi-show-detail:hover {
+    background-color: #ddd;
+}
+
+.ls-success {
+    color: green;
+}
+.ls-mismatch {
+    color: red;
+}
+.ls-lowpri, .ls-muted{
+    color: #888;
+}
+
+
+.err-box {
+    padding: 2rem;
+    background-color: #db0a4044;
+    margin-top: 2rem;
+}
+
+.err-title {
+    color: #db0a40;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.info-box {
+    padding: 2rem;
+    background-color: #06f4;
+    margin-top: 2rem;
+}
+
+.info-title {
+    color: #06f;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.success-box {
+    padding: 2rem;
+    background-color: rgba(0, 128, 0, 0.2);
+    margin-top: 2rem;
+}
+
+.success-title {
+    color: green;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.mt-desc {
+    display: grid;
+    grid-template-columns: minmax(150px, auto) 1fr; 
+    gap: 8px 20px;
+}
+
+.mt-item {
+    display: contents;
+}
+.mt-item-title {
+    margin-right: 2rem;
+    font-weight: bold;
+}
+
+.hp-key {
+    background-color: #ccc;
+    display: inline-block;
+    padding: 0.2rem;
+    font-family: monospace;
+
+}
+
+.ls-golden {
+    color: goldenrod;
+}
+
+.table-hint {
+    margin-top: 2rem;
+    color: #777;
+    padding: 1rem;
+    background-color: #06f1;
+    line-height: 1.5em;
+    font-size: .85rem;
+}
+
+.hint-title {
+    font-weight: bold;
+    color: #06f;
+    display: inline-block;
+    margin-right: 1ch;
+}
+
+
+
+@media (max-width: 600px) {
+    .flex {
+        display: block;
+    }
+    .flex > .section {
+        width: 100%;
+    }
+
+    #cslist-section {
+         width: 100%;
+    }
+}
+
+
+
+.dn {
+    display: none !important;
+}

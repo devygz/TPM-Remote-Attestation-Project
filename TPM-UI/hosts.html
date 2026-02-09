@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosts </title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <script src="/js/common.js"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+</head>
+
+<body>
+    <header>
+        <a href="/hosts.html">
+            <div class="hd-left">
+                <img src="/assets/snowflake.svg" class="sf-logo" alt="">
+                <div class="hd-title"><b>Arctic</b><br>Dashboard</div>
+            </div>
+        </a>
+        <div class="hd-right">
+            <a href="/logout.html" class="hd-link">Logout</a>
+        </div>
+    </header>
+    <main>
+        <div class="mt-title">Hosts</div>
+        <div class="mt-desc">List and manage all the hosts in your fleet. Inspect health, or check
+            specific measurement details.</div>
+        <div class="err-box dn" id="error-fh">
+            <div class="err-title">Error fetching Hosts</div>
+            <div id="error-body" class="err-body">An error occurred while fetching the inventory from the API. Please check your conenctions and try again later.</div>
+        </div>
+        <div class="info-box" id="content-still-loading">
+            <div class="info-title">Loading Information</div>
+            <div class="info-body">The information is still being processed. Please wait until all the data is loaded.</div>
+        </div>
+        <div class="hosts-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Last Checked</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="hosts-list-append">
+                    
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+
+    <script src="/js/hosts.js"></script>
+</body>
+
+</html>
