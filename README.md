@@ -1,0 +1,5 @@
+This is a simple demonstration of using a remote server and an agent to check TPM PCR values (0 to 7) and compare them against a Reference Measurement (also known as Golden Record / Golden Measurement) to detect possible modifications inside machine hardware and firmware.
+
+This project has been developed as a project for the System Security course's exam in around a week, so for sure this is NOT FOR PRODUCTION USE. It would be better to use quotes signed by the AK to ensure measurement integrity and prevent possible OS and networking based attacks. It would be also nice to use Nonces per each measurement session to prevent possible replay attacks.
+
+Some of the project files contain references to internal-use only domains, including but not limited to tpm-server.yagz.eu, *.nwk.yagz.eu, *.nwki.yagz.eu and more. These domains are only accessible in an internal network for project demonstration purposes, and has no public validity or doesn't host any public services. Please simply replace them with your own corresponding deployment addresses.
