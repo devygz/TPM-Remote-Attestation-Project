@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | Max Verstappen </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/tribute.html"><div class="hd-left">
+            <div class="hd-title"><b>Max Verstappen</b><br>Tribute Website</div>
+        </div></a>
+        <div class="hd-right">
+            <a href="/login.html" class="hd-link">Login</a>
+            <a href="/register.html" class="hd-link">Register</a>
+        </div>
+    </header>
+    <main>
+        <div class="hero-image-container">
+            <img src="/assets/images/21SP-MAX-INYT-1-superJumbo.jpg"
+                alt="Max Verstappen, 4-time World Champion F1 Pilot">
+            <div class="hero-title">Register to Website</div>
+        </div>
+        <div id="registerFlex" class="flex">
+
+
+            <div class="section whois-section">
+                <div class="sc-title">Register Now</div>
+                <div class="sc-body">
+                    Fill out to form below and get the latest news!
+                </div>
+            </div>
+            <div class="section">
+                <div class="sc-title">Registration Form</div>
+                <form action="/tribute.html">
+                    <div class="input-obj">
+                        <label for="username">Pick a great username:</label>
+                        <input id="username" required placeholder="max.verstappen" type="text">
+                    </div>
+                    <div class="input-obj">
+                        <label for="email">Your E-Mail Address:</label>
+                        <input id="email" placeholder="max.verstappen@example.com" type="text">
+                    </div>
+                    <div class="input-obj">
+                        <label for="pwd">Pick a Strong Password:</label>
+                        <input id="pwd" required placeholder="mAX.v3rst1pp3n" type="password">
+                    </div>
+                    <div class="input-obj">
+                        <label for="dob">What is your Date of Birth?</label>
+                        <input id="dob" type="date">
+                    </div>
+                    <div class="input-obj">
+                        <label for="country">What is your Country of Residence:</label>
+                        <select name="country" id="country">
+                            <option value="IT">Italia</option>
+                            <option value="TR">Türkiye</option>
+                            <option value="NL">Nederland</option>
+                            <option value="XX">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-obj">
+                        <label for="city">What is your City's name?:</label>
+                        <input id="city" placeholder="Messina" type="text">
+                    </div>
+                    <a href="/tribute.html"><div class="btn-primary">REGISTER</div></a>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,4 +1,5 @@
-const API_HOST = "http://tpm-server.yagz.eu:8001"
+//const API_HOST = "http://tpm-server.yagz.eu:8001"
+const API_HOST = "http://127.0.0.1:3000"
 
 
 function getRelativeTime(isoString) {
@@ -32,7 +33,9 @@ function getRelativeTime(isoString) {
 
 async function fetchData(url) {
   try {
-    const response = await fetch(API_HOST + url);
+    const response = await fetch(API_HOST + url,{
+        credentials: "same-origin" 
+    });
 
 
     if (!response.ok) {
@@ -56,6 +59,7 @@ async function postData(url, data = {}) {
       headers: {
         "Content-Type": "application/json", 
       },
+      credentials: "same-origin",
       body: JSON.stringify(data),
     });
 
@@ -68,6 +72,27 @@ async function postData(url, data = {}) {
 
   } catch (error) {
     console.error("Could not post data:", error);
+    return null;
+  }
+}
+
+
+async function deleteData(url) {
+  try {
+    const response = await fetch(API_HOST + url, {
+      method: "DELETE",
+      credentials: "same-origin" 
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    return result;
+
+  } catch (error) {
+    console.error("Could not delete data:", error);
     return null;
   }
 }

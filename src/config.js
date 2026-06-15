@@ -5,11 +5,13 @@ module.exports = {
     PORT: process.env.PORT || 3000,
     LOG_LEVEL: process.env.LOG_LEVEL || 'info',
 
+    // JWT
+    JWT_SECRET: process.env.JWT_SECRET || '8d35ccfacd3a64eb61e8d5675f2fa6b0707675bf',
 
     // Database-related
     DB_SERVER_ADDR: "tpm-db.nwki.yagz.eu",
-    DB_SERVER_USERNAME: "DATABASE_USERNAME",
-    DB_SERVER_PW: "DATABASE_PASSWORD",
+    DB_SERVER_USERNAME: "root",
+    DB_SERVER_PW: "sQpw98017+",
     DB_MAIN_DATABASE_NAME: "TPMAS",
 
     // Externals

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="/js/common.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: sans-serif;
+        }
+
+        tr td {
+            padding: 1rem .75 rem;
+            border-bottom: 1px solid #eee;
+        }
+
+
+        .ls-mm-detail {
+            padding-left: 20px;
+        }
+
+        .lsi-show-detail:nth-child(1)>td>.ls-healthy {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/hosts.html">
+            <div class="hd-left">
+                <img src="/assets/snowflake.svg" class="sf-logo" alt="">
+                <div class="hd-title"><b>Arctic</b><br>User Management</div>
+            </div>
+        </a>
+        <div class="hd-right">
+            <a href="/logout.html" class="hd-link">Logout</a>
+        </div>
+    </header>
+    <main>
+        <div class="mt-title">Users List</div>
+        <div class="mt-desc">
+            <p>These are all of the user accounts that can manage the Remote Atttestation of the servers. These users
+                are be able to register new devices, check and set the Reference Measurements and also add or remove
+                additional users. You can create and/or delete the users using this menu.
+                <br><br>
+
+                <a class="lk-always-black" href="/add-user.html">Create a New User &gt;</a>
+            </p>
+        </div>
+
+        <div class="err-box dn" id="error-fh">
+            <div class="err-title">Error fetching Users</div>
+            <div id="error-body" class="err-body">An error occurred while fetching the inventory from the API. Please
+                check your conenctions and try again later.</div>
+        </div>
+        <div class="success-box dn" id="success-fh">
+            <div class="success-title">Operation Successful</div>
+            <div id="success-body" class="success-body">An error occurred while fetching the inventory from the API.
+                Please check your conenctions and try again later.</div>
+        </div>
+        <div class="info-box" id="content-still-loading">
+            <div class="info-title">Loading Information</div>
+            <div class="info-body">The information is still being processed. Please wait until all the data is loaded.
+            </div>
+        </div>
+        <div class="table-hint">
+            <div class="hint-title">Hint:</div>Click on a user to delete it. To prevent you from losing access to the
+            system, mainaccount CANNOT be deleted.
+        </div>
+
+        <div class="hosts-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody id="user-list-append">
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <script src="/js/users.js"></script>
+</body>
+
+</html>

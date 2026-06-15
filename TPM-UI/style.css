@@ -242,6 +242,60 @@ header > a {
 
 }
 
+.btn-prm {
+    color: white;
+    background-color: #06f;
+    padding: 1rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .2s ease;
+    font-weight: bold;
+    border-radius: 1000px;
+    border: 2px solid #06f;
+    margin-top: 2rem;
+}
+
+.btn-prm:hover {
+    color: #06f;
+    background-color: transparent;
+    border: 2px solid #06f;
+    
+
+}
+.btn-dgr {
+    color: white;
+    background-color: rgb(199, 33, 18);
+    padding: 1rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: all .2s ease;
+    font-weight: bold;
+    border-radius: 1000px;
+    border: 2px solid rgb(199, 33, 18);
+    margin-top: 2rem;
+}
+
+.btn-dgr:hover {
+    color: rgb(155, 28, 16);
+    background-color: transparent;
+    border: 2px solid rgb(155, 28, 16);
+    
+
+}
+
+.lk-always-black {
+    color: #000;
+}
+
+.up-form > input {
+    border: 0;
+    border-bottom: 2px solid black;
+    font-size: 1.2rem;
+    margin-left: 5ch;
+    display: inline-block;
+}
+
+
 #quizSection {
     background-color: #db0a40;
     padding: 4rem;

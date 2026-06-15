@@ -148,4 +148,65 @@ async function markAsGolden(measurementID) {
 
 }
 
+async function deleteHost() {
+
+    if (!hostIDVal || hostIDVal === "") {
+        showError("Cannot delete: Host ID is missing.");
+        return;
+    }
+
+    const userConfirmed = confirm("Are you sure you want to delete this host? \n\nThis will also permanently delete ALL measurements associated with it. This action cannot be undone.");
+    
+    if (!userConfirmed) {
+        return; // User canceled
+    }
+
+   
+    document.querySelector('#content-still-loading').classList.remove('dn');
+    document.querySelector('#error-fh').classList.add('dn');
+    document.querySelector('#success-fh').classList.add('dn');
+
+    try {
+       
+        const response = await deleteData(`/inventory/${hostIDVal}`);
+
+       
+        if (!response) {
+            document.querySelector('#error-body').textContent = "Network Error: Could not reach the server to delete the host.";
+            document.querySelector('#error-fh').classList.remove('dn');
+            document.querySelector('#content-still-loading').classList.add('dn');
+            return;
+        }
+
+        
+        if (!response.result || !response.result.success) {
+            document.querySelector('#error-body').textContent = `Delete Failed: ${response.result ? response.result.message : "Unknown API Error"}`;
+            document.querySelector('#error-fh').classList.remove('dn');
+            document.querySelector('#content-still-loading').classList.add('dn');
+            return;
+        }
+
+       
+        document.querySelector('#success-body').textContent = "Host and all measurements deleted successfully. Redirecting...";
+        document.querySelector('#success-fh').classList.remove('dn');
+        document.querySelector('#content-still-loading').classList.add('dn');
+
+        
+        setTimeout(() => {
+            window.location.href = '/hosts.html'; 
+        }, 3500);
+
+    } catch (error) {
+        document.querySelector('#error-body').textContent = `An unexpected error occurred: ${error.message}`;
+        document.querySelector('#error-fh').classList.remove('dn');
+        document.querySelector('#content-still-loading').classList.add('dn');
+    }
+}
+
+const deleteHostBtn = document.querySelector('#delete-host-msr');
+
+if (deleteHostBtn) {
+    deleteHostBtn.addEventListener('click', deleteHost);
+}
+
 renderInformation();

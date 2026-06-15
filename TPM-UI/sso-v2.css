@@ -233,6 +233,18 @@ input:focus {
 
 .actionc {
     display: inline-block;
+    /* margin-top: 1em;
+     width: 100%;
+     text-align: center;
+     background-color: rgba(0, 0, 0, 0.5);
+     border-radius: 5px;
+     padding-bottom: 1em;
+     padding-top: 1em;
+     cursor: pointer;
+     transition: background-color 0.2s ease;
+     -webkit-backdrop-filter: blur(15px) brightness(80%);
+     backdrop-filter: blur(15px) brightness(80%);
+     -webkit-backdrop-filter: blur(15px) brightness(80%);*/
     margin-top: 2em;
     width: 25%;
     color: black;

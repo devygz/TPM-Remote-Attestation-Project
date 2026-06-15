@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="/js/common.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: sans-serif;
+        }
+
+        tr td {
+            padding: 1rem .75 rem; 
+            border-bottom: 1px solid #eee;
+        }
+
+       
+        .ls-mm-detail {
+            padding-left: 20px;
+        }
+
+        .lsi-show-detail:nth-child(1) > td > .ls-healthy {
+            color: green;
+        }
+        .up-form {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/hosts.html">
+            <div class="hd-left">
+                <img src="/assets/snowflake.svg" class="sf-logo" alt="">
+                <div class="hd-title"><b>Arctic</b><br>User Management</div>
+            </div>
+        </a>
+        <div class="hd-right">
+            <a href="/logout.html" class="hd-link">Logout</a>
+        </div>
+    </header>
+    <main>
+        <div class="mt-title">Create New User</div>
+        <br><br>
+        <div class="mt-desc">
+           <p>Create a new user account to manage the Remote Atttestation of the servers. These users will be able to register new devices, check and set the Reference Measurements and also add or remove additional users.</p>
+        </div>
+        <div class="err-box dn" id="error-fh">
+            <div class="err-title">Error fetching Users</div>
+            <div id="error-body" class="err-body">An error occurred while fetching the inventory from the API. Please check your conenctions and try again later.</div>
+        </div>
+        <div class="success-box dn" id="success-fh">
+            <div class="success-title">Operation Successful</div>
+            <div id="success-body" class="success-body">An error occurred while fetching the inventory from the API. Please check your conenctions and try again later.</div>
+        </div>
+        <div class="info-box dn" id="content-still-loading">
+            <div class="info-title">Loading Information</div>
+            <div class="info-body">The information is still being processed. Please wait until all the data is loaded.</div>
+        </div>
+        <div class="table-hint"><div class="hint-title">Security:</div>For the security purposes, all passwords gets and stored hashed. This hashing is done in the client side.</div>
+
+        <div class="up-form">
+            <label for="uname">Username</label>
+            <input type="text" placeholder="exampleuser">
+            <br><br>
+            <label for="passwd">Password</label>
+            <input type="password" placeholder="password">
+            <br><br>
+            <div class="btn-prm">Create Account</div>
+        </div>
+        
+
+    </main>
+
+    <script src="/js/add-user.js"></script>
+</body>
+
+</html>

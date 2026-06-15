@@ -15,8 +15,7 @@ const pool = mysql.createPool({
 
 async function getHostById(targetId) {
   try {
-    // We use [rows] to "destructure" the result because MySQL returns [data, metadata]
-    const [rows] = await pool.query(
+     const [rows] = await pool.query(
       'SELECT * FROM inventory_information WHERE host_id = ?', 
       [targetId]
     );
@@ -144,7 +143,7 @@ async function insertInventoryItem(hostData) {
 
     const values = [
         hostData.host_id,
-        hostData.host_name || null, // Allows NULL as per your schema
+        hostData.host_name || null, 
         hostData.host_auth_pw,
         hostData.tpm_mfg_code || null,
         hostData.description || null,
@@ -200,8 +199,30 @@ async function insertMeasurement(measurementData) {
     }
 }
 
+
+async function getLoginAccountByUsername(username) {
+  try {
+    const [rows] = await pool.query(
+      'SELECT * FROM login_accounts WHERE username = ?', 
+      [username]
+    );
+
+    if (rows.length === 0) {
+      console.log("No account found with that username.");
+      return null;
+    }
+
+    console.log("Account Found:", rows[0].username); 
+    return rows[0];
+    
+  } catch (error) {
+    console.error("Database error while fetching login account:", error);
+    throw error; 
+  }
+}
+
 async function updateInventoryHealth(hostId, healthStatus) {
-    // We use CURRENT_TIMESTAMP so the DB handles the clock sync
+    // CURRENT_TIMESTAMP : DB handles the clock sync
     const query = `
         UPDATE inventory_information 
         SET 
@@ -268,6 +289,91 @@ async function gsMatch(hostID, measurementData) {
     };
 }
 
+// Add these functions above module.exports in msq.js
+
+async function createLoginAccount(username, password) {
+    try {
+        // We omit id (auto-increment) and created_at (DB default)
+        const query = 'INSERT INTO login_accounts (username, passwd) VALUES (?, ?)';
+        const [result] = await pool.execute(query, [username, password]);
+        
+        return {
+            success: true,
+            insertId: result.insertId
+        };
+    } catch (error) {
+        // MySQL error code 1062 is for a duplicate entry (e.g., if username is UNIQUE)
+        if (error.code === 'ER_DUP_ENTRY') {
+            throw new Error('DUPLICATE_USERNAME');
+        }
+        console.error("Database error while creating login account:", error);
+        throw error;
+    }
+}
+
+async function deleteLoginAccount(id) {
+    try {
+        const query = 'DELETE FROM login_accounts WHERE id = ?';
+        const [result] = await pool.execute(query, [id]);
+        
+        return {
+            success: true,
+            affectedRows: result.affectedRows
+        };
+    } catch (error) {
+        console.error("Database error while deleting login account:", error);
+        throw error;
+    }
+}
+
+async function getAllLoginAccounts() {
+    try {
+    
+        const query = 'SELECT id, username, created_at FROM login_accounts';
+        const [rows] = await pool.query(query);
+
+       
+        if (rows.length === 0) {
+            return [];
+        }
+
+        return rows;
+    } catch (error) {
+        console.error("Database error while fetching all login accounts:", error);
+        throw error;
+    }
+}
+
+async function deleteHostAndMeasurements(hostId) {
+    
+    const connection = await pool.getConnection();
+    
+    try {
+        await connection.beginTransaction();
+
+      
+        await connection.execute('DELETE FROM pcr_states WHERE host_id = ?', [hostId]);
+
+
+        const [result] = await connection.execute('DELETE FROM inventory_information WHERE host_id = ?', [hostId]);
+
+        await connection.commit();
+
+        return {
+            success: true,
+            affectedRows: result.affectedRows 
+        };
+    } catch (error) {
+       
+        await connection.rollback();
+        console.error("Database error while deleting host:", error);
+        throw error;
+    } finally {
+        
+        connection.release();
+    }
+}
+
 module.exports = {
     getHostById,
     gsMatch,
@@ -280,5 +386,10 @@ module.exports = {
     generateSecurePassword,
     arraysHaveSameKeys,
     getAllInventory,
-    updateInventoryHealth
+    updateInventoryHealth,
+    getLoginAccountByUsername,
+    createLoginAccount,
+    deleteLoginAccount,
+    getAllLoginAccounts,
+    deleteHostAndMeasurements
 };

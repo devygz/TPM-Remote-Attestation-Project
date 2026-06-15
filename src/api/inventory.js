@@ -90,5 +90,32 @@ router.post('/register', async (req, res) => {
 
 });
 
+router.delete('/:hostID', async (req, res) => {
+    const perfStart = Date.now();
+    const hostIDLookup = req.params['hostID'];
+
+    if (!hostIDLookup) {
+        response.responseFailure(res, 'ERR:MISSING-PARAMS', 'Please provide a host_id to delete.');
+        return;
+    }
+
+    try {
+        const result = await msq.deleteHostAndMeasurements(hostIDLookup);
+
+        // If affectedRows is 0, the host didn't exist in the database
+        if (result.affectedRows === 0) {
+            response.responseFailure(res, 'ERR:HOST_NOT_FOUND', 'Cannot find the specified host in the database.');
+            return;
+        }
+
+        response.responseSuccessful(res, `Host ${hostIDLookup} and all associated measurements were deleted successfully.`, {
+            perf: Date.now() - perfStart
+        });
+    } catch (error) {
+        console.error("Error in delete host route:", error);
+        response.responseFailure(res, 'ERR:INTERNAL_SERVER_ERROR', 'An error occurred while deleting the host and its measurements.');
+    }
+});
+
 
 module.exports = router;

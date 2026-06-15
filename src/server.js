@@ -4,6 +4,7 @@ const cors = require('cors');
 let inventoryRouter;
 let postureRouter;
 let gsRouter;
+let authRouter;
 
 try {
     inventoryRouter = require('./api/inventory');
@@ -12,6 +13,8 @@ try {
     console.log("postureRouter loaded");
     gsRouter = require('./api/goldenState');
     console.log("gsRouter loaded");
+    authRouter = require('./api/auth');
+    console.log("authRouter loaded");
 } catch (err) {
     console.error("Failed to load routers:", err);
     process.exit(1);
@@ -25,6 +28,7 @@ app.use(cors());
 app.use('/inventory', inventoryRouter);
 app.use('/posture', postureRouter);
 app.use('/gs', gsRouter);
+app.use('/auth', authRouter);
 
 
 app.use((req, res, next) => {
